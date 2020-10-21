@@ -1,15 +1,13 @@
 import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
+import { Background } from '../components/Background';
 
 export function Home(props) {
 	return (
-		<View style={styles.container}>
-			<ImageBackground
-				source={images.background.uri}
-				style={styles.image}
-			>
+		<Background>
+			<View style={{ flex: 1, justifyContent: 'space-around' }}>
 				<View>
 					<Text style={styles.title}>
 						Vente en direct de notre bateau
@@ -29,35 +27,34 @@ export function Home(props) {
 						www.facebook.com/lebatheaudethibault
 					</Text>
 				</View>
-				<View style={{ flexDirection: 'row' }}>
-					<View style={styles.col}>
-						<Button
-							name="PRODUIT"
-							screen="Produits"
-							navigation={props.navigation}
-						></Button>
-						<Button name="billet"></Button>
-					</View>
-					<View style={styles.col}>
-						<Button name="brillet"></Button>
-						<Button name="billet"></Button>
+
+				<View style={{ flexDirection: 'column' }}>
+					<Button
+						name="Produits et promotions"
+						screen="Category"
+						navigation={props.navigation}
+						uri={images.poisson.uri}
+					/>
+					<View style={{ flexDirection: 'row' }}>
+						<View style={styles.col}>
+							<Button name="Bateaux" uri={images.ancre.uri} />
+							<Button name="Recettes" uri={images.recette.uri} />
+						</View>
+						<View style={styles.col}>
+							<Button
+								name="Restaurants"
+								uri={images.restaurant.uri}
+							/>
+							<Button name="Contact" uri={images.tourteau.uri} />
+						</View>
 					</View>
 				</View>
-			</ImageBackground>
-		</View>
+			</View>
+		</Background>
 	);
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		flexDirection: 'column',
-	},
-	image: {
-		flex: 1,
-		resizeMode: 'cover',
-		justifyContent: 'space-around',
-	},
 	text: {
 		color: 'black',
 		textAlign: 'center',

@@ -1,11 +1,12 @@
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { Component } from 'react';
-import { getRessources } from '../services/apirest';
 import { Button } from '../components/Button';
+import { images } from '../constants/images';
+import { getRessources } from '../services/apirest';
+import { Background } from '../components/Background';
+import { Header } from '../components/Header';
 
-export class Product extends Component {
-	// Components/Search.js
-
+export class Category extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { data: [] };
@@ -19,39 +20,46 @@ export class Product extends Component {
 
 	render() {
 		return (
-			<View
-				style={{
-					flex: 1,
-					flexDirection: 'column',
-					alignItems: 'stretch',
-				}}
-			>
-				{/* <Text>{JSON.stringify(this.state.data)}</Text> */}
+			<Background>
+				<Header navigation={this.props.navigation} />
 				<Button
-					name="CAT1"
-					screen={'Category'}
+					name="Poissons"
+					uri={images.poulpe.uri}
 					navigation={this.props.navigation}
+					screen={'Produit'}
 					data={this.state.data.filter((prod) => prod.category == 0)}
 				></Button>
 				<Button
-					name="cat2"
-					screen={'Category'}
+					name="Coquillages"
+					uri={images.poulpe.uri}
 					navigation={this.props.navigation}
+					screen={'Produit'}
 					data={this.state.data.filter((prod) => prod.category == 1)}
 				></Button>
 				<Button
-					name="cat3"
-					screen={'Category'}
+					name="Crustacés"
+					uri={images.poulpe.uri}
 					navigation={this.props.navigation}
-					data={this.state.data.filter((prod) => prod.category == 2)}
+					screen={'Produit'}
+					data={this.state.data.filter((prod) => prod.category == 1)}
 				></Button>
+
 				<Button
-					name="cat4"
-					screen={'Category'}
+					name="Promotions"
+					uri={images.poulpe.uri}
 					navigation={this.props.navigation}
+					screen={'Produit'}
 					data={this.state.data.filter((prod) => prod.discount != 0)}
 				></Button>
-			</View>
+			</Background>
 		);
 	}
 }
+
+const styles = StyleSheet.create({
+	text: {
+		color: 'black',
+		textAlign: 'center',
+		fontSize: 13,
+	},
+});
