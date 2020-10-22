@@ -3,8 +3,6 @@ import { Image, StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export function Button(props) {
-
-	console.log(props.uri)
 	return (
 		<TouchableOpacity
 			style={styles.button}
@@ -32,7 +30,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     button: {
-
         height: 80,
         backgroundColor: 'transparent',
         opacity: 1,
@@ -46,7 +43,6 @@ const styles = StyleSheet.create({
         width: 65,
         height: 65,
         marginHorizontal: 10,
-        
         borderRadius: 30,
     },
 });

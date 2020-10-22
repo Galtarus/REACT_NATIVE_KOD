@@ -16,7 +16,7 @@ export function Header(props) {
 
 			<ButtonHeader
 				image={images.cartLogo.uri}
-				screen="Cart"
+				screen="Shop"
 				navigation={props.navigation}
 			/>
 		</View>
