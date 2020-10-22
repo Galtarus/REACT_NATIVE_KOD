@@ -62,10 +62,8 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     image:{
-        flex: 0.5,
-        //  width: 200,
+        flex: 1,
         aspectRatio: 0.8,
-        // height: null,
         resizeMode: 'contain'
     }
 });
