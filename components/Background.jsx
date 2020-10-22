@@ -1,6 +1,6 @@
-import React from 'react';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet } from 'react-native';
 import { images } from '../constants/images';
+import React from 'react';
 
 export function Background(props) {
 	return (

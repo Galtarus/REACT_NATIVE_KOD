@@ -1,12 +1,6 @@
-import React from 'react';
 import { StyleSheet, Text, View,Image } from 'react-native';
-import { Button } from '../components/Button';
-import { images } from '../constants/images';
 import { Background } from '../components/Background';
-import { useLinkProps } from '@react-navigation/native';
-
-
-
+import React from 'react';
 
 export function StaticTemplate(props) {
 
@@ -31,9 +25,6 @@ export function StaticTemplate(props) {
                 <Text style={styles.body}>
                     {bato.poesie}
                 </Text>
-
-
-
             </View>
         </Background>
     );

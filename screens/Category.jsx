@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React, { Component } from 'react';
-import { images } from '../constants/images';
-import { getRessources } from '../services/apirest';
 import { Background } from '../components/Background';
-import { Header } from '../components/Header';
 import { ButtonCat } from '../components/ButtonCat';
+import { getRessources } from '../services/apirest';
+import { Header } from '../components/Header';
+import { images } from '../constants/images';
+import { StyleSheet } from 'react-native';
+import React, { Component } from 'react';
 
 export class Category extends Component {
 	constructor(props) {

@@ -1,12 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Button } from '../components/Button';
-import { images } from '../constants/images';
 import { Background } from '../components/Background';
-import { ships } from '../constants/ships';
-import { Value } from 'react-native-reanimated';
+import { StyleSheet, Text, View } from 'react-native';
 import { recettes } from '../constants/recettes';
-
+import { Button } from '../components/Button';
+import React from 'react';
 
 export function RecetteList(props) {
 	return (

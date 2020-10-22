@@ -1,13 +1,10 @@
-import React from 'react';
+import { Background } from '../components/Background';
 import { StyleSheet, Text, View } from 'react-native';
+import { contact } from '../constants/contact';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
-import { Background } from '../components/Background';
 import { ships } from '../constants/ships';
-import { Value } from 'react-native-reanimated';
-import {contact} from '../constants/contact';
-
-
+import React from 'react';
 
 export function ShipList(props) {
 	return (
@@ -71,23 +68,7 @@ export function ShipList(props) {
 								poesie={contact.tig.poesie}
 								navigation={props.navigation}
 							/>
-				
-
-
 				</View>
-
-
-
-
-
-
-
-
-
-
-
-
-
 			</View>
 		</Background >
 	);

@@ -1,10 +1,8 @@
-import React from 'react';
-import { Image, StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, StyleSheet, Text, View } from 'react-native';
 import { images } from '../constants/images';
 import { Component } from 'react';
-import { connect } from 'react-redux';
-import { addProduct } from '../store/actions/cartActions';
+import React from 'react';
 
 export class ShopItem extends Component {
    
@@ -12,8 +10,8 @@ export class ShopItem extends Component {
 		return (
 			<View>
 				<TouchableOpacity 
-				onPress={() => this.props.addProduct(this.props.item)}
-				onLongPress={() => this.props.removeProduct(this.props.item)}
+					onPress={() => this.props.addProduct(this.props.item)}
+					onLongPress={() => this.props.removeProduct(this.props.item)}
 				>
 					<View style={styles.item}>
 						<Image source={images.poulpe.uri} style={styles.img} />

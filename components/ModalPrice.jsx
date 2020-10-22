@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, Image, Modal, Text, Alert, Button } from 'react-native';
-import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-import ButtonHeader from '../components/ButtonHeader';
-import { images } from '../constants/images';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { StyleSheet, Text, Alert } from 'react-native';
+import React from 'react';
 
 export function ModalPrice(props) {
   const createTwoButtonAlert = () =>

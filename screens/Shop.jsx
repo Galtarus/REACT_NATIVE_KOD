@@ -1,17 +1,20 @@
-import React from 'react';
-import { Background } from '../components/Background';
-import { Header } from '../components/Header';
-import {  StyleSheet, Text, View } from 'react-native';
-import { connect } from 'react-redux';
-import  {ShopItem}  from '../components/ShopItem';
-import { ModalPrice } from '../components/ModalPrice';
 import { addProduct, removeProduct } from '../store/actions/cartActions';
+import { Background } from '../components/Background';
+import { StyleSheet, Text, View } from 'react-native';
+import { ModalPrice } from '../components/ModalPrice';
+import { ShopItem } from '../components/ShopItem';
+import { Header } from '../components/Header';
+import { connect } from 'react-redux';
+import React from 'react';
 
-function getPrices(props) {
-    let count = 0;
-    props.shops.forEach((shop) => {
+function getPrices(shops) {
+		let count = 0;
+		console.log(shops);
+    if(shops) {
+			shops.forEach(shop => {
         count += shop.price * shop.nomberProduct;
-    });
+		});
+		}
     return count;
 }
 
@@ -23,26 +26,45 @@ class Shop extends  React.Component {
 				<View style={styles.container}>
 					<View>
 						<Text style={{ textAlign: 'center' }}>Modifier la quantité en tappent sur chaque produit</Text>
-						{this.props.shops.map((shop) => (<ShopItem key={shop.id} 
-								item={shop} 
-								addProduct={this.props.addProduct}
-								removeProduct={this.props.removeProduct} >
+							{this.props.shops.map((shop) => (<ShopItem key={shop.id} 
+									item={shop} 
+									addProduct={this.props.addProduct}
+									removeProduct={this.props.removeProduct} >
 							</ShopItem>))}
 					</View>
 					<View style={styles.resume}>
-						<Text style={styles.price}>Total {getPrices(this.props)} €</Text>
+						<Text style={styles.price}>Total {getPrices(this.props.shops)} €</Text>
 						<Text style={styles.text}>Lieu de livraison (choisir):</Text>
 						<Text style={styles.text}>Bistrot des Gascons</Text>
 						<Text style={styles.text}>26 Avenue de Trouville, 75007 Paris</Text>
 						<Text style={styles.text}>Date de livraison</Text>
 						<Text style={styles.text}>Samedi 16 Mars, à partir de 9h</Text>
-						<ModalPrice price={getPrices(this.props)}></ModalPrice>
+						<ModalPrice price={getPrices(this.props.shop)}></ModalPrice>
 					</View>
 				</View>
 			</Background>
 		);	
 	}
 }
+
+const mapStateToProps = (state) => {
+	return {
+		shops: state.cart.products,
+	};
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addProduct: (data) => {
+			dispatch(addProduct(data));
+		},
+		removeProduct: (data) => {
+			dispatch(removeProduct(data));
+		},
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);
 
 const styles = StyleSheet.create({
 	container: {
@@ -74,22 +96,3 @@ const styles = StyleSheet.create({
 		marginRight: 10,
 	},
 });
-
-const mapStateToProps = (state) => {
-	return {
-		shops: state.cart.products,
-	};
-};
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		addProduct: (data) => {
-			dispatch(addProduct(data));
-		},
-		removeProduct: (data) => {
-			dispatch(removeProduct(data));
-		},
-	};
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Shop);

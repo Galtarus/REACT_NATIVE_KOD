@@ -1,10 +1,10 @@
-import React from 'react';
+import { Background } from '../components/Background';
 import { StyleSheet, Text, View } from 'react-native';
+import { contact } from '../constants/contact';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
-import { Background } from '../components/Background';
-import {contact} from '../constants/contact';
 import { resto } from '../constants/resto';
+import React from 'react';
 
 
 export function RestoList(props) {

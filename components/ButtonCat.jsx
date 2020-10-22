@@ -1,6 +1,6 @@
-import React from 'react';
-import { Image, StyleSheet, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, StyleSheet, Text } from 'react-native';
+import React from 'react';
 
 export function ButtonCat(props) {
 	return (

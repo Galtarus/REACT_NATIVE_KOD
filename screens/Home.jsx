@@ -1,9 +1,9 @@
-import React from 'react';
+import { Background } from '../components/Background';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
-import { Background } from '../components/Background';
-import {contact} from '../constants/contact';
+import { contact } from '../constants/contact';
+import React from 'react';
 
 export function Home(props) {
 	return (

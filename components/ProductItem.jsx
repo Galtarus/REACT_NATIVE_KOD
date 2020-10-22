@@ -1,9 +1,9 @@
-import React from 'react';
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { connect } from 'react-redux';
-import { images } from '../constants/images';
 import { addProduct, removeProduct } from '../store/actions/cartActions';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { images } from '../constants/images';
+import { connect } from 'react-redux';
+import React from 'react';
 
 function isInCart(props) {
 	let result = props.products.filter((value) => {

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
 import { Background } from '../components/Background';
 import ProductItem from '../components/ProductItem';
 import { Header } from '../components/Header';
+import React, { Component } from 'react';
 
 export class Product extends Component {
 	constructor(props) {

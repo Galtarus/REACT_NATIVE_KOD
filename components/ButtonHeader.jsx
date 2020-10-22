@@ -1,5 +1,5 @@
-import React from 'react';
 import { StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React from 'react';
 
 export default function ButtonHeader(props) {
 	return (

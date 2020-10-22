@@ -1,7 +1,7 @@
-import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
 import ButtonHeader from '../components/ButtonHeader';
 import { images } from '../constants/images';
+import React from 'react';
 
 export function Header(props) {
 	return (
