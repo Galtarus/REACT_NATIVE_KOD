@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     image:{
         flex: 1,
         aspectRatio: 0.8,
+        
         resizeMode: 'contain'
     }
 });
