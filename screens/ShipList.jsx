@@ -5,6 +5,8 @@ import { images } from '../constants/images';
 import { Background } from '../components/Background';
 import { ships } from '../constants/ships';
 import { Value } from 'react-native-reanimated';
+import {contact} from '../constants/contact';
+
 
 
 export function ShipList(props) {
@@ -60,7 +62,17 @@ export function ShipList(props) {
 							})}
 						</View>
 					</View>
-					<Button name="Contact" uri={images.ancre.uri} />
+
+					<Button 
+								uri={images.TIG.uri}
+								name="Contact"
+								screen={"StaticTemplate"}
+								subtext={contact.tig.subtext}
+								poesie={contact.tig.poesie}
+								navigation={props.navigation}
+							/>
+				
+
 
 				</View>
 

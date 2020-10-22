@@ -3,8 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
 import { Background } from '../components/Background';
-import { ships } from '../constants/ships';
-import { Value } from 'react-native-reanimated';
+import {contact} from '../constants/contact';
 import { resto } from '../constants/resto';
 
 
@@ -61,7 +60,14 @@ export function RestoList(props) {
 							})}
 						</View>
 					</View>
-					<Button name="Devenez Partenaire !" uri={images.ancre.uri} />
+					<Button 
+								uri={images.TIG.uri}
+								name="Devenez Partenaires !"
+								screen={"StaticTemplate"}
+								subtext={contact.tig.subtext}
+								poesie={contact.tig.poesie}
+								navigation={props.navigation}
+							/>
 
 				</View>
 			</View>
