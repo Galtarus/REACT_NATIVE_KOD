@@ -3,13 +3,14 @@ import { Background } from '../components/Background';
 import { Header } from '../components/Header';
 import {  StyleSheet, Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import  ShopItem  from '../components/ShopItem';
+import  {ShopItem}  from '../components/ShopItem';
 import { ModalPrice } from '../components/ModalPrice';
+import { addProduct, removeProduct } from '../store/actions/cartActions';
 
 function getPrices(props) {
     let count = 0;
     props.shops.forEach((shop) => {
-        count += shop.price;
+        count += shop.price * shop.nomberProduct;
     });
     return count;
 }
@@ -22,7 +23,11 @@ class Shop extends  React.Component {
 				<View style={styles.container}>
 					<View>
 						<Text style={{ textAlign: 'center' }}>Modifier la quantité en tappent sur chaque produit</Text>
-						{this.props.shops.map((shop) => (<ShopItem key={shop.id} item={shop}></ShopItem>))}
+						{this.props.shops.map((shop) => (<ShopItem key={shop.id} 
+								item={shop} 
+								addProduct={this.props.addProduct}
+								removeProduct={this.props.removeProduct} >
+							</ShopItem>))}
 					</View>
 					<View style={styles.resume}>
 						<Text style={styles.price}>Total {getPrices(this.props)} €</Text>
@@ -76,4 +81,15 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps, undefined)(Shop);
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addProduct: (data) => {
+			dispatch(addProduct(data));
+		},
+		removeProduct: (data) => {
+			dispatch(removeProduct(data));
+		},
+	};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Shop);

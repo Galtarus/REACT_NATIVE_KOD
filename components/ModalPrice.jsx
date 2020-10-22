@@ -10,12 +10,8 @@ export function ModalPrice(props) {
       "Envoyer votre commande?",
       "Envoyer votre commande de "+ props.price + " € à Thibault?",
       [
-        {
-          text: "Non",
-          onPress: () => console.log("Cancel Pressed"),
-          style: "cancel"
-        },
-        { text: "Oui", onPress: () => console.log("OK Pressed") }
+        { text: "Non", style: "cancel" },
+        { text: "Oui"}
       ],
       { cancelable: false }
     );
@@ -24,9 +20,7 @@ export function ModalPrice(props) {
 				<Text style={styles.important}>Valider</Text>
 			</TouchableOpacity>
     )
-    return (<Button title={"2-Button Alert"} onPress={createTwoButtonAlert} />);
 }
-
 
 const styles = StyleSheet.create({
 	important: {

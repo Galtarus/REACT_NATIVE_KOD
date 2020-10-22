@@ -6,23 +6,15 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProduct } from '../store/actions/cartActions';
 
-class ShopItem extends Component {
-	constructor(props){
-    // StatusBar.setHidden(true);
-    super(props);
-      this.state = {
-        pickData:null
-      }
-	}
-	
-	shouldComponentUpdate(nextProps){
-		return true;
-	}
-
+export class ShopItem extends Component {
+   
 	render() {
 		return (
 			<View>
-				<TouchableOpacity onPress={() => this.props.addProduct(this.props.item)}>
+				<TouchableOpacity 
+				onPress={() => this.props.addProduct(this.props.item)}
+				onLongPress={() => this.props.removeProduct(this.props.item)}
+				>
 					<View style={styles.item}>
 						<Image source={images.poulpe.uri} style={styles.img} />
 						<Text style={styles.text}>{this.props.item.name}</Text>
@@ -33,16 +25,6 @@ class ShopItem extends Component {
 		);
 	}
 }
-
-const mapDispatchToProps = (dispatch) => {
-	return {
-		addProduct: (data) => {
-			dispatch(addProduct(data));
-		}
-	};
-};
- 
-export default connect(null, mapDispatchToProps)(ShopItem);
 
 const styles = StyleSheet.create({
 	item: {
