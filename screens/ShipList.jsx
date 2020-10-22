@@ -3,23 +3,22 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
 import { Background } from '../components/Background';
-import {contact} from '../constants/contact';
+import { ships } from '../constants/ships';
+import { Value } from 'react-native-reanimated';
 
-export function Home(props) {
+
+export function ShipList(props) {
 	return (
 		<Background>
 			<View style={{ flex: 1, justifyContent: 'space-around' }}>
 				<View>
 					<Text style={styles.title}>
-						Vente en direct de notre bateau
+						Nos Bateaux partenaires!
 					</Text>
 				</View>
 				<View>
-					<Text style={styles.bold}>Le bateau de Thibau</Text>
+					<Text style={styles.bold}>Tout les eaux menent a Thibault.</Text>
 
-					<Text style={styles.bold}>
-						Produits selon la saison, Livraisons sur Paris
-					</Text>
 					<Text style={styles.text}>06.63.99.99.78</Text>
 					<Text style={styles.text}>
 						lebateaudethebault@gmail.com
@@ -28,44 +27,57 @@ export function Home(props) {
 						www.facebook.com/lebatheaudethibault
 					</Text>
 				</View>
-
 				<View style={{ flexDirection: 'column' }}>
-					<Button
-						name="Produits et promotions"
-						screen="Category"
-						navigation={props.navigation}
-						uri={images.poisson.uri}
-					/>
+
 					<View style={{ flexDirection: 'row' }}>
+
 						<View style={styles.col}>
-							<Button name="Bateaux"
-								uri={images.ancre.uri}
-								screen="ShipList"
-								navigation={props.navigation} />
-							<Button name="Recettes" uri={images.recette.uri}
-								screen="RecetteList"
-								navigation={props.navigation} />
+							{ships.map((value, index) => {
+								if (index%2==0) {
+									return <Button key={index}
+										name={value.imgName}
+										uri={value.uri}
+										subtext={value.subtext}
+										poesie={value.poesie}
+										screen={"StaticTemplate"}
+										navigation={props.navigation}
+									/>
+								}
+							})}
 						</View>
 						<View style={styles.col}>
-							<Button
-								name="Restaurants"
-								uri={images.restaurant.uri}
-								screen="RestoList"
-								navigation={props.navigation}
-							/>
-							<Button 
-								uri={images.TIG.uri}
-								name="Contact"
-								screen={"StaticTemplate"}
-								subtext={contact.tig.subtext}
-								poesie={contact.tig.poesie}
-								navigation={props.navigation}
-							/>
+							{ships.map((value, index) => {
+								if (index%2==1) {
+									return <Button key={index}
+										name={value.imgName}
+										uri={value.uri}
+										subtext={value.subtext}
+										poesie={value.poesie}
+										screen={"StaticTemplate"}
+										navigation={props.navigation}
+									/>
+								}
+							})}
 						</View>
 					</View>
+					<Button name="Contact" uri={images.ancre.uri} />
+
 				</View>
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</View>
-		</Background>
+		</Background >
 	);
 }
 

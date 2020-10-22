@@ -3,23 +3,23 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Button } from '../components/Button';
 import { images } from '../constants/images';
 import { Background } from '../components/Background';
-import {contact} from '../constants/contact';
+import { ships } from '../constants/ships';
+import { Value } from 'react-native-reanimated';
+import { resto } from '../constants/resto';
 
-export function Home(props) {
+
+export function RestoList(props) {
 	return (
 		<Background>
 			<View style={{ flex: 1, justifyContent: 'space-around' }}>
 				<View>
 					<Text style={styles.title}>
-						Vente en direct de notre bateau
+						Restaurants partenaires!
 					</Text>
 				</View>
 				<View>
-					<Text style={styles.bold}>Le bateau de Thibau</Text>
+					<Text style={styles.bold}>Tout les restaurants partenaires avec le bateau de Thilbault.</Text>
 
-					<Text style={styles.bold}>
-						Produits selon la saison, Livraisons sur Paris
-					</Text>
 					<Text style={styles.text}>06.63.99.99.78</Text>
 					<Text style={styles.text}>
 						lebateaudethebault@gmail.com
@@ -28,41 +28,41 @@ export function Home(props) {
 						www.facebook.com/lebatheaudethibault
 					</Text>
 				</View>
-
 				<View style={{ flexDirection: 'column' }}>
-					<Button
-						name="Produits et promotions"
-						screen="Category"
-						navigation={props.navigation}
-						uri={images.poisson.uri}
-					/>
+
 					<View style={{ flexDirection: 'row' }}>
+
 						<View style={styles.col}>
-							<Button name="Bateaux"
-								uri={images.ancre.uri}
-								screen="ShipList"
-								navigation={props.navigation} />
-							<Button name="Recettes" uri={images.recette.uri}
-								screen="RecetteList"
-								navigation={props.navigation} />
+							{resto.map((value, index) => {
+								if (index % 2 == 0) {
+									return <Button key={index}
+										name={value.imgName}
+										uri={value.uri}
+										subtext={value.subtext}
+										poesie={value.poesie}
+										screen={"StaticTemplate"}
+										navigation={props.navigation}
+									/>
+								}
+							})}
 						</View>
 						<View style={styles.col}>
-							<Button
-								name="Restaurants"
-								uri={images.restaurant.uri}
-								screen="RestoList"
-								navigation={props.navigation}
-							/>
-							<Button 
-								uri={images.TIG.uri}
-								name="Contact"
-								screen={"StaticTemplate"}
-								subtext={contact.tig.subtext}
-								poesie={contact.tig.poesie}
-								navigation={props.navigation}
-							/>
+							{resto.map((value, index) => {
+								if (index % 2 == 1) {
+									return <Button key={index}
+										name={value.imgName}
+										uri={value.uri}
+										subtext={value.subtext}
+										poesie={value.poesie}
+										screen={"StaticTemplate"}
+										navigation={props.navigation}
+									/>
+								}
+							})}
 						</View>
 					</View>
+					<Button name="Devenez Partenaire !" uri={images.ancre.uri} />
+
 				</View>
 			</View>
 		</Background>
