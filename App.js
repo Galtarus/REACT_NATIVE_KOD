@@ -11,24 +11,29 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import Shop from './screens/Shop';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
 	return (
 		<Provider store={store}>
-			<NavigationContainer>
-				<Stack.Navigator screenOptions={{ headerShown: false }}>
-					<Stack.Screen name="Home" component={Home} />
-					<Stack.Screen name="Category" component={Category} />
-					<Stack.Screen name="Produit" component={Product} />
-					<Stack.Screen name="ShipList" component={ShipList} />
-					<Stack.Screen name="RestoList" component={RestoList} />
-					<Stack.Screen name="RecetteList" component={RecetteList} />
-					<Stack.Screen name="StaticTemplate" component={StaticTemplate} />
-					<Stack.Screen name="Shop" component={Shop} />
-				</Stack.Navigator>
-			</NavigationContainer>
+			<SafeAreaView style={{ flex: 1}}>
+				<NavigationContainer>
+					<Stack.Navigator screenOptions={{ headerShown: false }}>
+						<Stack.Screen name="Home" component={Home} />
+						<Stack.Screen name="Category" component={Category} />
+						<Stack.Screen name="Produit" component={Product} />
+						<Stack.Screen name="ShipList" component={ShipList} />
+						<Stack.Screen name="RestoList" component={RestoList} />
+						<Stack.Screen name="RecetteList" component={RecetteList} />
+						<Stack.Screen name="StaticTemplate" component={StaticTemplate} />
+						<Stack.Screen name="Shop" component={Shop} />
+					</Stack.Navigator>
+				</NavigationContainer>
+			</SafeAreaView>
+
 		</Provider>
 	);
 }

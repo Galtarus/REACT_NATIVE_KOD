@@ -26,13 +26,13 @@ export function Button(props) {
 const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
-        color: 'black',
+        color: 'white',
         alignItems: 'center',
     },
     button: {
         height: 80,
-        backgroundColor: 'transparent',
-        opacity: 1,
+        backgroundColor: 'grey',
+        opacity: 0.7,
         margin: 5,
         borderWidth: 2,
         justifyContent: 'flex-start',

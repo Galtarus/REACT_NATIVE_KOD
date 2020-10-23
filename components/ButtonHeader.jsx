@@ -14,7 +14,7 @@ export default function ButtonHeader(props) {
 			{props.image && (
 				<Image
 					source={props.image}
-					style={{ width: 50, height: 50, marginRight: 10 }}
+					style={{ width: 45, height: 45, }}
 				/>
 			)}
 		</TouchableOpacity>

@@ -16,7 +16,7 @@ export function ShipList(props) {
 					</Text>
 				</View>
 				<View>
-					<Text style={styles.bold}>Tout les eaux menent a Thibault.</Text>
+					<Text style={styles.bold}>Toutes les eaux menent à Thibault.</Text>
 
 					<Text style={styles.text}>06.63.99.99.78</Text>
 					<Text style={styles.text}>

@@ -32,30 +32,36 @@ export function StaticTemplate(props) {
 
 const styles = StyleSheet.create({
     bold: {
+        flex: 0.2,
         color: 'white',
         fontWeight: 'bold',
         fontSize: 22,
         textAlign: 'center'
     },
-    body: {
-        color: 'black',
-        fontSize: 16,
-        textAlign: 'center'
+    image:{
+        flex: 1.6,
+        aspectRatio: 1,
+        resizeMode: 'contain',
+        marginBottom:10
     },
     subtitle:{
+        flex: 0.4,
         color: 'black',
-        fontSize: 20,
-        textAlign: 'center'
+        fontSize: 18,
+        textAlign: 'center',
     },
+    body: {
+        flex: 1.2,
+        color: 'black',
+        fontSize: 14,
+        textAlign: 'center',
+    },
+    
     containter:{
         flex: 1,
         justifyContent: 'space-around',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingTop: 25
     },
-    image:{
-        flex: 1,
-        aspectRatio: 0.8,
-        
-        resizeMode: 'contain'
-    }
+    
 });

@@ -15,7 +15,7 @@ export function Home(props) {
 					</Text>
 				</View>
 				<View>
-					<Text style={styles.bold}>Le bateau de Thibau</Text>
+					<Text style={styles.bold}>Le bateau de Thibault</Text>
 
 					<Text style={styles.bold}>
 						Produits selon la saison, Livraisons sur Paris

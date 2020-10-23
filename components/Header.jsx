@@ -29,10 +29,11 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 		backgroundColor: 'black',
 		alignItems: 'center',
-		flex: 0.2,
+		maxHeight: 53
 	},
 	img: {
-		flex: 2,
-		width: 200,
+		flex: 0.92,
+        aspectRatio: 0.8,
+        resizeMode: 'contain'
 	},
 });
